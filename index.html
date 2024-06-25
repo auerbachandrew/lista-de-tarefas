@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Minhas Tarefas </title>
+   <style>
+    *{
+       box-sizing:border-box;
+       margin: 0;
+    }
+      body {
+        border: 10px solid blueviolet;
+        min-height:100vh;
+        font-family: impact, sans-serif;
+        display: flex;
+        flex-direction: column;
+         background-color: blueviolet;
+        }
+      
+       header{
+        color: white;
+       }
+        
+        main{
+            flex: auto;
+            background: white;
+            padding: 20px;
+        }
+
+        main ul{
+            padding:0px;
+        }
+
+        footer{
+        display:flex;
+        padding: 5px;
+       }
+
+       footer input{
+        flex: auto;
+        padding: 5px;
+       }
+   </style>
+ 
+</head>
+
+<body>
+    <header>
+        <h1>TAREFAS</h1>
+    </header>
+    
+    <main>
+       <ul></ul>  
+    </main>
+
+    <footer>
+        <input>
+    <button onclick="add()">adicionar</button> 
+    </footer>
+   
+    <script>
+
+    // estado da aplicaçao
+    const tarefas = []
+
+    // alteradores de estado da aplicaçao
+    function add() {
+        const input = document.querySelector("input")
+        const tarefa = input.value
+        tarefas.push(tarefa)
+        input.value = ""
+        render()
+    }
+
+    // mostrar estado na tela 
+    function render() {
+        const ul = document.querySelector("ul")
+        ul.innerHTML = null
+
+        tarefas.forEach(function (tarefa) {
+            const li = document.createElement("li")
+            li.innerText = tarefa
+            ul.appendChild(li)
+           })
+    }       
+
+    // iniciar
+    render()
+    </script>
+</body>
+
+</html>
